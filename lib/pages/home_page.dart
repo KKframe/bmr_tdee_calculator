@@ -90,11 +90,11 @@ class _HomePageState extends State<HomePage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Expanded(child: build_W_or_H_Input('weigh')),
+                          Expanded(child: build_W_or_H_Input('weigh (kg)')),
                           SizedBox(
                             width: 8,
                           ),
-                          Expanded(child: build_W_or_H_Input('height')),
+                          Expanded(child: build_W_or_H_Input('height (cm)')),
                         ],
                       ),
                       buildActivityList(),
@@ -235,7 +235,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
   Padding build_W_or_H_Input(String str) {
-    var isW = (str.compareTo('weigh') == 0);
+    var isW = (str.compareTo('weigh (kg)') == 0);
     return Padding(
       padding: pad,
       child: TextField(
@@ -276,14 +276,32 @@ class _HomePageState extends State<HomePage> {
   }
 
   void handleClickBTN() {
-    User.name = nameController.text;
-    User.surname = surnameController.text;
-    User.age = int.tryParse(ageController.text)!;
-    User.weigh = int.tryParse(wController.text) as double;
-    User.height = int.tryParse(hController.text) as double;
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => ResultPage()),
-    );
+    if(nameController.text == ' ' || surnameController.text==' ' || ageController==0
+        || wController ==0.0 || hController==0.0 || User.gender == ' ' || User.activity_index < 0 ){
+      showDialog(context: context,  barrierDismissible: false,builder: (BuildContext context){
+        return AlertDialog(
+          title: Text('ERROR'),
+          content:Text('Invalid input'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        );
+      });
+    }else{
+      User.name = nameController.text;
+      User.surname = surnameController.text;
+      User.age = int.tryParse(ageController.text)!;
+      User.weigh = int.tryParse(wController.text) as double;
+      User.height = int.tryParse(hController.text) as double;
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => ResultPage())
+      );
+    }
   }
 }
