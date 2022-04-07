@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../User.dart';
+import 'home_page.dart';
 
 class ResultPage extends StatefulWidget {
   const ResultPage({Key? key}) : super(key: key);
@@ -58,25 +59,29 @@ class _ResultPageState extends State<ResultPage> {
                               CircularProgressIndicator(), //ตัวหมุนๆที่โหลดอ่ะ
                         ),
                       ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Text(
-                            'Calories per meal',
-                            style: TextStyle(
-                              fontSize: 28,
-                              //backgroundColor: Colors.white.withOpacity(0.4),
-                              fontFamily: 'ARLRDBD',
-                              decoration: TextDecoration.underline,
-                              decorationStyle: TextDecorationStyle.solid,
-                            ),
+                    HeaderPerMeal(),
+                    for (int i = 0; i < 3; i++) buildListMeal(i),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage()));
+                        },
+                        child: Text('EXIT'),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.redAccent,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                          textStyle: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
                           ),
                         ),
-                      ],
+                      ),
                     ),
-                    for (int i = 0; i < 3; i++) buildListMeal(i)
                   ],
                 ),
               ),
@@ -87,6 +92,27 @@ class _ResultPageState extends State<ResultPage> {
     );
   }
 
+  Row HeaderPerMeal() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Text(
+            'Calories per meal',
+            style: TextStyle(
+              fontSize: 28,
+              //backgroundColor: Colors.white.withOpacity(0.4),
+              fontFamily: 'ARLRDBD',
+              decoration: TextDecoration.underline,
+              decorationStyle: TextDecorationStyle.solid,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Card buildListMeal(int i) {
     return Card(
       elevation: 5,
@@ -94,6 +120,7 @@ class _ResultPageState extends State<ResultPage> {
       child: InkWell(
         onTap: () {},
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -107,6 +134,7 @@ class _ResultPageState extends State<ResultPage> {
               width: 30,
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),

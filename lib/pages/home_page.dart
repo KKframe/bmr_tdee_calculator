@@ -277,7 +277,7 @@ class _HomePageState extends State<HomePage> {
 
   void handleClickBTN() {
     if(nameController.text == ' ' || surnameController.text==' ' || ageController==0
-        || wController ==0.0 || hController==0.0 || User.gender == ' ' || User.activity_index < 0 ){
+        || wController ==' ' || hController==' ' || User.gender == ' ' || User.activity_index < 0 ){
       showDialog(context: context,  barrierDismissible: false,builder: (BuildContext context){
         return AlertDialog(
           title: Text('ERROR'),
