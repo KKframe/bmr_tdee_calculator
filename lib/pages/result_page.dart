@@ -65,6 +65,7 @@ class _ResultPageState extends State<ResultPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
                         onPressed: () {
+                          User.clear();
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(

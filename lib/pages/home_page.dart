@@ -277,8 +277,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   void handleClickBTN() {
-    if(nameController.text == ' ' || surnameController.text==' ' || ageController==0
-        || wController ==' ' || hController==' ' || User.gender == ' ' || User.activity_index < 0 ){
+    if(nameController.text == '' ||nameController.text == null
+        || surnameController.text=='' ||surnameController.text==null
+        || ageController==0  ||ageController==null
+        || wController == '' ||wController == null
+        || hController== '' || hController== null
+        || User.gender == '' || User.activity_index < 0 ){
       showDialog(context: context,  barrierDismissible: false,builder: (BuildContext context){
         return AlertDialog(
           title: Text('ERROR'),
