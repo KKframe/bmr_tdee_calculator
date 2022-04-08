@@ -298,7 +298,7 @@ class _HomePageState extends State<HomePage> {
       User.age = int.tryParse(ageController.text)!;
       User.weigh = int.tryParse(wController.text) as double;
       User.height = int.tryParse(hController.text) as double;
-      Navigator.pushReplacement(
+      Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => ResultPage())
       );
