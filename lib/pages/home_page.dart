@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../User.dart';
+import 'easy.dart';
 import 'result_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -300,7 +301,7 @@ class _HomePageState extends State<HomePage> {
       User.height = int.tryParse(hController.text) as double;
       Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => ResultPage())
+          MaterialPageRoute(builder: (context) => TestPage())
       );
     }
   }
