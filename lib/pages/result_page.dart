@@ -188,47 +188,53 @@ class _ResultPageState extends State<ResultPage> {
     );
   }
 
-  Container Header() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.blue.shade50,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 50,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundImage: (isFemale)
-                  ? NetworkImage(
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnF8pwURYqGpgDnHeFSM_izVcIUfAA3izexnw9fUBtYMkKkrveX3ubIfJrRsST3Ma148E&usqp=CAU")
-                  : NetworkImage(
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ7XDHaA5U57sw6ED-3ApM22TlSxiSIhyTwj4vXzEJdsGJhYbp-y9cWWMfqbj310H09XQ&usqp=CAU"),
-              radius: 80.0,
+  Row Header() {
+    return Row(
+      children: [
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.blue.shade50,
             ),
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.only(left: 20, top: 8, bottom: 8, right: 8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Hello ${User.name} ${User.surname}!',
-                    style: TextStyle(
-                      fontFamily: 'ARLRDBD',
-                      fontSize: 30,
-                    )),
-                Text(
-                    'Weigh : ${User.weigh} kg\nHeight : ${User.height} cm\nAge : ${User.age} years old',
-                    style: style1),
+                SizedBox(
+                  width: 50,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CircleAvatar(
+                    backgroundImage: (isFemale)
+                        ? NetworkImage(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnF8pwURYqGpgDnHeFSM_izVcIUfAA3izexnw9fUBtYMkKkrveX3ubIfJrRsST3Ma148E&usqp=CAU")
+                        : NetworkImage(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ7XDHaA5U57sw6ED-3ApM22TlSxiSIhyTwj4vXzEJdsGJhYbp-y9cWWMfqbj310H09XQ&usqp=CAU"),
+                    radius: 80.0,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 20, top: 8, bottom: 8, right: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Hello ${User.name} ${User.surname}!',
+                          style: TextStyle(
+                            fontFamily: 'ARLRDBD',
+                            fontSize: 30,
+                          )),
+                      Text(
+                          'Weigh : ${User.weigh} kg\nHeight : ${User.height} cm\nAge : ${User.age} years old',
+                          style: style1),
+                    ],
+                  ),
+                )
               ],
             ),
-          )
-        ],
-      ),
+          ),
+        ),
+      ],
     );
   }
 

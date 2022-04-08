@@ -301,7 +301,7 @@ class _HomePageState extends State<HomePage> {
       User.height = int.tryParse(hController.text) as double;
       Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => TestPage())
+          MaterialPageRoute(builder: (context) => ResultPage())
       );
     }
   }
