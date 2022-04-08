@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../User.dart';
-import 'easy.dart';
 import 'result_page.dart';
 
 class HomePage extends StatefulWidget {
